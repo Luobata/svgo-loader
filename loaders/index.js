@@ -16,8 +16,8 @@ module.exports = function loader(source, map, meta) {
     const callback = this.async();
 
     svgo.optimize(source).then(result => {
-        result.data = result.data.replace(/"/g, "'");
-        callback(null, encodeURI(JSON.stringify(result)), map, meta);
-        console.log(JSON.stringify(result));
+        let res = 'module.exports = ' + JSON.stringify(result);
+        callback(null, res, map, meta);
+        console.log(res);
     });
 };
