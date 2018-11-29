@@ -17,10 +17,15 @@ export default (fixture, options = {}) => {
         module: {
             rules: [
                 {
-                    test: /\.md$/,
-                    use: {
-                        loader: path.resolve(__dirname, '../loaders/index.js'),
-                    },
+                    test: /\.svg/,
+                    use: [
+                        {
+                            loader: path.resolve(
+                                __dirname,
+                                '../loaders/index.js',
+                            ),
+                        },
+                    ],
                 },
             ],
         },
